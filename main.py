@@ -57,7 +57,7 @@ async def help(ctx, com = None):
   else:
     embed = discord.Embed(
     title = "You have entered a wrong command.",
-    description = "Type `%help` to see the help box or type `%help welcome` to see more about the welcome command."
+    description = "Type `%help` to see the help box or type `%help welcome` to see more about the welcome command.",
     colour = colour()
     )
   await ctx.send(embed=embed)
