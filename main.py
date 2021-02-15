@@ -72,4 +72,4 @@ async def invite(ctx):
 
 
 
-client.run('ODEwODk2OTgyMDM3MjMzNjY0.YCqUqg.uVmQUQNP61l6rIXmthuW-gnf4QQ')
+client.run(os.environ['token'])
