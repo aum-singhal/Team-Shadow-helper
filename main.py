@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands, tasks
 from random import choice
+import os
 
 
 client = commands.Bot(command_prefix=commands.when_mentioned_or("%"), description='A simple helping bot for Team Shadow!')
