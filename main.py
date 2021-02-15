@@ -47,7 +47,7 @@ async def help(ctx, com = None):
     embed.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
     await ctx.send(embed=embed)
   elif (com == 'welcome') or (com == 'wel'):
-    embed = dicord.Embed(
+    embed = discord.Embed(
       title = "Welcome Command Help Box",
       colour = colour()
     )
