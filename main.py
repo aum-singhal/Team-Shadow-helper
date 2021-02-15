@@ -95,7 +95,7 @@ async def welcome(ctx, user : discord.Member = None):
       description = "Hello Everyone, Welcome to the server. \nWe hope to build a better community with you 😊",
       colour = colour()
     )
-    embed.set_image(url = 'https://external-preview.redd.it/E2lDfTFkTeNzejBmzshg_Pnlk9y1ku55ykVa0GNi97g.gif?format=mp4&s=d6923fba18d442f6140b1dae076e318234c6ff66')
+    embed.set_image(url = 'https://64.media.tumblr.com/36b4fa9c3afb33f7e5ca1d2a515e72ef/tumblr_ncgvmyPwhy1tv4k5po1_500.gifv')
     await ctx.send(embed = embed)
   else:
     embed = discord.Embed(
@@ -103,7 +103,7 @@ async def welcome(ctx, user : discord.Member = None):
       description = f"Hello {user.mention}, Welcome to the server. \nWe hope to build a better community with you 😊",
       colour = colour()
     )
-    embed.set_image(url = 'https://external-preview.redd.it/E2lDfTFkTeNzejBmzshg_Pnlk9y1ku55ykVa0GNi97g.gif?format=mp4&s=d6923fba18d442f6140b1dae076e318234c6ff66')
+    embed.set_image(url = 'https://64.media.tumblr.com/36b4fa9c3afb33f7e5ca1d2a515e72ef/tumblr_ncgvmyPwhy1tv4k5po1_500.gifv')
     await ctx.send(embed = embed)
 
 
