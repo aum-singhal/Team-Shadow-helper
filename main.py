@@ -95,7 +95,7 @@ async def welcome(ctx, user : discord.Member = None):
       description = "Hello Everyone, Welcome to the server. \nWe hope to build a better community with you 😊",
       colour = colour()
     )
-    embed.set_image(url = 'https://64.media.tumblr.com/36b4fa9c3afb33f7e5ca1d2a515e72ef/tumblr_ncgvmyPwhy1tv4k5po1_500.gifv')
+    embed.set_image(url = 'https://media.giphy.com/media/14aa5GbbHT3bHO/giphy.gif')
     await ctx.send(embed = embed)
   else:
     embed = discord.Embed(
@@ -103,7 +103,7 @@ async def welcome(ctx, user : discord.Member = None):
       description = f"Hello {user.mention}, Welcome to the server. \nWe hope to build a better community with you 😊",
       colour = colour()
     )
-    embed.set_image(url = 'https://64.media.tumblr.com/36b4fa9c3afb33f7e5ca1d2a515e72ef/tumblr_ncgvmyPwhy1tv4k5po1_500.gifv')
+    embed.set_image(url = 'https://media.giphy.com/media/14aa5GbbHT3bHO/giphy.gif')
     await ctx.send(embed = embed)
 
 
