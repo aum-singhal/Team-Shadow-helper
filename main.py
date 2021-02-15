@@ -34,26 +34,26 @@ async def change_status():
 @client.command()
 async def help(ctx, com = None):
   if com == None:
-    embed = discord.Embed(
+    em = discord.Embed(
       title = 'Help',
       description = 'Following are the commands available for you to use with this bot.',
       colour = colour()
     )
-    embed.add_field(name='ping', value='Helps you check the latency. type `%ping` to use the command',inline=False)
-    embed.add_field(name='invite', value='Gives you the invite link for inviting people to the server and help us grow this server. \nThanks in advance for inviting people 😊', inline=False)
-    embed.add_field(name='bam', value='You get BAMMED!!. Type `%bam` to use the command.',inline=False)
-    embed.add_field(name='pog', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
-    embed.add_field(name='welcome', value="Welcome the new user 😊 \nType `%help welcome` for more details.",inline=False)
-    embed.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
-    await ctx.send(embed=embed)
+    em.add_field(name='ping', value='Helps you check the latency. type `%ping` to use the command',inline=False)
+    em.add_field(name='invite', value='Gives you the invite link for inviting people to the server and help us grow this server. \nThanks in advance for inviting people 😊', inline=False)
+    em.add_field(name='bam', value='You get BAMMED!!. Type `%bam` to use the command.',inline=False)
+    em.add_field(name='pog', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
+    em.add_field(name='welcome', value="Welcome the new user 😊 \nType `%help welcome` for more details.",inline=False)
+    em.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
+    await ctx.send(embed=em)
   elif (com == 'welcome') or (com == 'wel'):
-    embed = discord.Embed(
+    em = discord.Embed(
       title = "Welcome Command Help Box",
       colour = colour()
     )
-    embed.add_field(name='Usage', value="type `%welcome` or `%welcome [mention the user]` \nFor Example: \n `%welcome @team_shadow_members`", inline=False)
-    embed.add_field(name ='Alias', value="`%wel`", inline=False)
-    await ctx.send(embed=embed)
+    em.add_field(name='Usage', value="type `%welcome` or `%welcome [mention the user]` \nFor Example: \n `%welcome @team_shadow_members`", inline=False)
+    em.add_field(name ='Alias', value="`%wel`", inline=False)
+    await ctx.send(embed=em)
   else:
     embed = discord.Embed(
     title = "You have entered a wrong command.",
