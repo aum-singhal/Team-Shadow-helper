@@ -88,7 +88,7 @@ async def pog(ctx):
 
 
 @client.command(aliases=['wel'])
-async def welcome(ctx, user : discor.Member = None):
+async def welcome(ctx, user : discord.Member = None):
   if user == None:
     embed = discord.Embed(
       title = 'Welcome to the Server!!',
