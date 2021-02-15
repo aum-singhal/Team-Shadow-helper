@@ -41,7 +41,8 @@ async def help(ctx):
   embed.add_field(name='ping', value='Helps you check the latency. type `%ping` to use the command',inline=False)
   embed.add_field(name='invite', value='Gives you the invite link for inviting people to the server and help us grow this server. \nThanks in advance for inviting people 😊', inline=False)
   embed.add_field(name='bam', value='You get BAMMED!!. Type `%bam` to use the command.',inline=False)
-  embed.add_field(name='bam', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
+  embed.add_field(name='pog', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
+  embed.add_field(name='welcome', value="Welcome the new user 😊",inline=False)
   embed.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
   await ctx.send(embed=embed)
 
@@ -85,6 +86,25 @@ async def pog(ctx):
   embed.set_image(url = 'https://i.redd.it/4vba1tggcb351.jpg')
   await ctx.send(embed = embed)
 
+
+@client.command(aliases=['wel'])
+async def welcome(ctx, user : discor.Member = None):
+  if user == None:
+    embed = discord.Embed(
+      title = 'Welcome to the Server!!',
+      description = "Hello Everyone, Welcome to the server. \nWe hope to build a better community with you 😊",
+      colour = colour()
+    )
+    embed.set_image(url = 'https://external-preview.redd.it/xITN9adljLrfjouZuq_putL_wB4phF_XtAPdLjjcuIw.gif?format=mp4&s=7c3ecc9cca31d6019e8a5b430cada81ace9e41b2')
+    await ctx.send(embed = embed)
+  else:
+    embed = discord.Embed(
+      title = 'Welcome to the Server!!',
+      description = f"Hello {user.mention}, Welcome to the server. \nWe hope to build a better community with you 😊",
+      colour = colour()
+    )
+    embed.set_image(url = 'https://external-preview.redd.it/xITN9adljLrfjouZuq_putL_wB4phF_XtAPdLjjcuIw.gif?format=mp4&s=7c3ecc9cca31d6019e8a5b430cada81ace9e41b2')
+    await ctx.send(embed = embed)
 
 
 
