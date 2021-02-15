@@ -41,6 +41,7 @@ async def help(ctx):
   embed.add_field(name='ping', value='Helps you check the latency. type `%ping` to use the command',inline=False)
   embed.add_field(name='invite', value='Gives you the invite link for inviting people to the server and help us grow this server. \nThanks in advance for inviting people 😊', inline=False)
   embed.add_field(name='bam', value='You get BAMMED!!. Type `%bam` to use the command.',inline=False)
+  embed.add_field(name='bam', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
   embed.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
   await ctx.send(embed=embed)
 
@@ -73,6 +74,17 @@ async def bam(ctx):
   )
   embed.set_image(url = 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/447790b1-04f1-4ed2-9001-15e6b6f2dfaf/d6yin79-b9e8723a-4866-4cb1-9706-19670676e5f6.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNDQ3NzkwYjEtMDRmMS00ZWQyLTkwMDEtMTVlNmI2ZjJkZmFmXC9kNnlpbjc5LWI5ZTg3MjNhLTQ4NjYtNGNiMS05NzA2LTE5NjcwNjc2ZTVmNi5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.w_vE88Hd7ju-bsXRPm3DMGLl4G0Rzr-fn70i-x3Iq8U')
   await ctx.send(embed = embed)
+
+
+@client.command()
+async def pog(ctx):
+  embed = discord.Embed(
+    title = f"{ctx.author.name}, Hello Pogger",
+    colour = colour()
+  )
+  embed.set_image(url = 'https://i.redd.it/4vba1tggcb351.jpg')
+  await ctx.send(embed = embed)
+
 
 
 
