@@ -40,7 +40,7 @@ async def help(ctx):
   )
   embed.add_field(name='ping', value='Helps you check the latency. type `%ping` to use the command',inline=False)
   embed.add_field(name='invite', value='Gives you the invite link for inviting people to the server and help us grow this server. \nThanks in advance for inviting people 😊')
-  embed.add_field(name='bam', value='You get BAMMED!!')
+  embed.add_field(name='bam', value='You get BAMMED!!. Type `%bam` to use the command.)
   embed.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
   await ctx.send(embed=embed)
 
