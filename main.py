@@ -56,12 +56,12 @@ async def help(ctx, com = None):
     em.add_field(name ='Alias', value="`%wel`", inline=False)
     await ctx.send(embed=em)
   else:
-    em = discord.Embed(
+    embed = discord.Embed(
     title = "You have entered a wrong command.",
     description = "Type `%help` to see the help box or type `%help welcome` to see more about the welcome command.",
     colour = discord.Colour.red()
     )
-  await ctx.send(embed=em)
+  await ctx.send(embed=embed)
 
 
 
