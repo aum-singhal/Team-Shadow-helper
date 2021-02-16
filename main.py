@@ -8,7 +8,7 @@ import os
 
 client = commands.Bot(command_prefix=commands.when_mentioned_or("%"), description='A simple helping bot for Team Shadow!')
 client.remove_command('help')
-status = ['Listening to %help','Drinking Water 🥤','🍩 Eating Doughnut']
+status = ['Listening to %help','Watching Team Shadows','🍩 Eating Doughnut']
 
 def colour():
   l = [ 1752220, 3066993, 3447003, 10181046, 15844367, 15105570, 15158332, 3426654, 16580705 ]
