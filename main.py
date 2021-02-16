@@ -293,8 +293,8 @@ async def unban(ctx, user= None):
 async def mute(ctx, member: discord.Member = None, reason = "No Reason provided"):
   if member == None:
     em = discord.Embed(
-      title = "Whom you want to UnBan",
-      description = "Please try again but this time give me the name of the person to ban. \nExample of the usage: \n `%unban [Mention the person]` \nRemember that you need to specify [user name]#[user discriminator] for exmaple `sample#7834`",
+      title = "Whom you want to mute",
+      description = "Please try again but this time give me the name of the person to mute. \nExample of the usage: \n `%mute [Mention the person] [reason]`",
       colour = discord.Colour.red()
     )
     await ctx.send(embed = em)
@@ -330,8 +330,8 @@ async def mute(ctx, member: discord.Member = None, reason = "No Reason provided"
 async def unmute(ctx, member: discord.Member):
   if member == None:
     em = discord.Embed(
-      title = "Whom you want to UnBan",
-      description = "Please try again but this time give me the name of the person to ban. \nExample of the usage: \n `%unban [Mention the person]` \nRemember that you need to specify [user name]#[user discriminator] for exmaple `sample#7834`",
+      title = "Whom you want to Unmute",
+      description = "Please try again but this time give me the name of the person to unmute. \nExample of the usage: \n `%unmute [Mention the person]`",
       colour = discord.Colour.red()
     )
     await ctx.send(embed = em)
