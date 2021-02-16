@@ -327,7 +327,7 @@ async def mute(ctx, member: discord.Member = None, reason = "No Reason provided"
 
 @client.command()
 @commands.has_permissions(administrator=True)
-async def unmute(ctx, member: discord.Member):
+async def unmute(ctx, member: discord.Member = None):
   if member == None:
     em = discord.Embed(
       title = "Whom you want to Unmute",
