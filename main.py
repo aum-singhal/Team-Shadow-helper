@@ -40,6 +40,7 @@ async def help(ctx, com = None):
     em.add_field(name='pog', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
     em.add_field(name='kick', value="Helps you kick a member. Type `%kick [mention user] [reason]`. ",inline=False)
     em.add_field(name='ban', value="Helps you ban a member. Type `%ban [mention user] [reason]`. ",inline=False)
+    em.add_field(name='warn', value="Helps you warn a member. Type `%warn [mention user] [reason]`. ",inline=False)
     em.add_field(name='welcome', value="Welcome the new user 😊 \nType `%help welcome` for more details.",inline=False)
     em.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
     await ctx.send(embed=em)
@@ -203,7 +204,7 @@ async def warn(ctx, user : discord.Member = None, *,reason = "No reason provided
   if user == None:
     em = discord.Embed(
       title = "Whom you want to warn",
-      description = "Please try again but this time give me the name of the person to ban. \nExample of the usage: \n `%warn [Mention the person] [give a reason]`",
+      description = "Please try again but this time give me the name of the person to warn. \nExample of the usage: \n `%warn [Mention the person] [give a reason]`",
       colour = discord.Colour.red()
     )
     await ctx.send(embed = em)
