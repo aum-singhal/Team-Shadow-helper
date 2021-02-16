@@ -126,7 +126,7 @@ async def welcome(ctx, user : discord.Member = None):
 
 
 @client.command()
-@commands.has_permissions(administrator=True)
+@commands.has_permissions(kick_members=True)
 async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided"):
   if user == None:
     em = discord.Embed(
@@ -157,7 +157,7 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
 
 
 @client.command()
-@commands.has_permissions(administrator=True)
+@commands.has_permissions(ban_members=True)
 async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"):
   if user == None:
     em = discord.Embed(
