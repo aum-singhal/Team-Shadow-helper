@@ -122,7 +122,7 @@ async def welcome(ctx, user : discord.Member = None):
 
 
 @client.command()
-@commands.has_permissions(administrator=True ,kick_members=True)
+@commands.has_permissions(administrator=True)
 async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided"):
   if user == None:
     em = discord.Embed(
@@ -153,14 +153,14 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
     except:
       em = discord.Embed(
         title = "You don't have the permission to use this command!",
-        description = "You need to have administrator or kick members permission to use this command",
+        description = "You need to have administrator permission to use this command",
         colour = discord.Colour.red()
       )
       await ctx.send(embed = em)
 
 
 @client.command()
-@commands.has_permissions(administrator=True, ban_members=True)
+@commands.has_permissions(administrator=True)
 async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"):
   if user == None:
     em = discord.Embed(
@@ -191,10 +191,46 @@ async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"
     except:
       em = discord.Embed(
         title = "You don't have the permission to use this command!",
-        description = "You need to have administrator or ban members permission to use this command",
+        description = "You need to have administrator permission to use this command",
         colour = discord.Colour.red()
       )
       await ctx.send(embed = em)
+
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def warn(ctx, user : discord.Member = None, *,reason = "No reason provided"):
+  if user == None:
+    em = discord.Embed(
+      title = "Whom you want to warn",
+      description = "Please try again but this time give me the name of the person to ban. \nExample of the usage: \n `%warn [Mention the person] [give a reason]`",
+      colour = discord.Colour.red()
+    )
+    await ctx.send(embed = em)
+  else:
+    try:
+      try:
+        await user.send(f"You have been Warned by {ctx.author.name} in the Teams Shadows for the reason: {reason} ")
+        em = discord.Embed(
+          title = f"Warned {user.name}!!",
+          colour = discord.Colour.red()
+        )
+        await ctx.send(embed = em)
+      except:
+        em = discord.Embed(
+          title = f"Can't send the message to {user.name}",
+          colour = discord.Colour.green()
+        )
+        await ctx.send(embed = em)
+        await ctx.send(f"{user.mention} You have been WARNED!!!!")
+    except:
+      em = discord.Embed(
+        title = "You don't have the permission to use this command!",
+        description = "You need to have administrator permission to use this command",
+        colour = discord.Colour.red()
+      )
+      await ctx.send(embed = em)
+
 
 
 
