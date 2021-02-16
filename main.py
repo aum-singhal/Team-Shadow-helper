@@ -38,6 +38,8 @@ async def help(ctx, com = None):
     em.add_field(name='invite', value='Gives you the invite link for inviting people to the server and help us grow this server. \nThanks in advance for inviting people 😊', inline=False)
     em.add_field(name='bam', value='You get BAMMED!!. Type `%bam` to use the command.',inline=False)
     em.add_field(name='pog', value="Are you a POGGER!!? Let's see. Type `%pog`. ",inline=False)
+    em.add_field(name='kick', value="Helps you kick a member. Type `%kick [mention user] [reason]`. ",inline=False)
+    em.add_field(name='ban', value="Helps you ban a member. Type `%ban [mention user] [reason]`. ",inline=False)
     em.add_field(name='welcome', value="Welcome the new user 😊 \nType `%help welcome` for more details.",inline=False)
     em.set_footer(icon_url=ctx.author.avatar_url, text=f"This message was requested by {ctx.author.name}")
     await ctx.send(embed=em)
