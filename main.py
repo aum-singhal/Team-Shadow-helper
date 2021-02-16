@@ -132,7 +132,7 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
     )
     await ctx.send(embed = em)
   else:
-    await user.send("You have been kicked out of the Team Shadows!!\nBecause:  ",reason)
+    await user.send("You have been kicked out of the Team Shadows!!\nBecause:  "+ reason)
     await user.kick(reason = reason)
     em = discord.Embed(
       title = f"Kicked {user.name} out of the server!!",
@@ -153,7 +153,7 @@ async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"
     )
     await ctx.send(embed = em)
   else:
-    await user.send("You have been Banned from Team Shadows!!\nBecause:  ",reason)
+    await user.send("You have been Banned from Team Shadows!!\nBecause:  "+ reason)
     await user.ban(reason = reason)
     em = discord.Embed(
       title = f"Banned {user.name} out of the server!!",
