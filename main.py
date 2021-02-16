@@ -137,30 +137,23 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
     await ctx.send(embed = em)
   else:
     try:
-      try:
-        await user.send(f"You have been **kicked** out of the **{ctx.guild.name}**!!\nBecause: **{reason}** ")
-        await user.kick(reason = reason)
-        em = discord.Embed(
-          title = f"Kicked {user.name} out of the server!!",
-          description = "We hope now there will be PEACE in the server!",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-      except:
-        await user.kick(reason = reason)
-        em = discord.Embed(
-          title = f"Kicked {user.name} out of the server!!",
-          description = "We hope now there will be PEACE in the server!",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-    except:
+      await user.send(f"You have been **kicked** out of the **{ctx.guild.name}**!!\nBecause: **{reason}** ")
+      await user.kick(reason = reason)
       em = discord.Embed(
-        title = "You don't have the permission to use this command!",
-        description = "You need to have administrator permission to use this command",
-        colour = discord.Colour.red()
+        title = f"Kicked {user.name} out of the server!!",
+        description = "We hope now there will be PEACE in the server!",
+        colour = discord.Colour.green()
       )
       await ctx.send(embed = em)
+    except:
+      await user.kick(reason = reason)
+      em = discord.Embed(
+        title = f"Kicked {user.name} out of the server!!",
+        description = "We hope now there will be PEACE in the server!",
+        colour = discord.Colour.green()
+      )
+      await ctx.send(embed = em)
+    
 
 
 @client.command()
@@ -175,30 +168,23 @@ async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"
     await ctx.send(embed = em)
   else:
     try:
-      try:
-        await user.send(f"You have been **Banned** from **{ctx.guild.name}**!!\nBecause: **{reason}** ")
-        await user.ban(reason = reason)
-        em = discord.Embed(
-          title = f"Banned {user.name} from the server!!",
-          description = "We hope now there will be PEACE in the server!",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-      except:
-        await user.ban(reason = reason)
-        em = discord.Embed(
-          title = f"Banned {user.name} from the server!!",
-          description = "We hope now there will be PEACE in the server!",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-    except:
+      await user.send(f"You have been **Banned** from **{ctx.guild.name}**!!\nBecause: **{reason}** ")
+      await user.ban(reason = reason)
       em = discord.Embed(
-        title = "You don't have the permission to use this command!",
-        description = "You need to have administrator permission to use this command",
-        colour = discord.Colour.red()
+        title = f"Banned {user.name} from the server!!",
+        description = "We hope now there will be PEACE in the server!",
+        colour = discord.Colour.green()
       )
       await ctx.send(embed = em)
+    except:
+      await user.ban(reason = reason)
+      em = discord.Embed(
+        title = f"Banned {user.name} from the server!!",
+        description = "We hope now there will be PEACE in the server!",
+        colour = discord.Colour.green()
+      )
+      await ctx.send(embed = em)
+    
 
 
 @client.command()
@@ -213,27 +199,20 @@ async def warn(ctx, user : discord.Member = None, *,reason = "No reason provided
     await ctx.send(embed = em)
   else:
     try:
-      try:
-        await user.send(f"You have been **Warned** by **{ctx.author.name}** in the **{ctx.guild.name}** for the reason: **{reason}** ")
-        em = discord.Embed(
-          title = f"Warned {user.name}!!",
-          colour = discord.Colour.red()
-        )
-        await ctx.send(embed = em)
-      except:
-        em = discord.Embed(
-          title = f"Can't send the message to {user.name}",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-        await ctx.send(f"{user.mention} You have been WARNED!!!!")
-    except:
+      await user.send(f"You have been **Warned** by **{ctx.author.name}** in the **{ctx.guild.name}** for the reason: **{reason}** ")
       em = discord.Embed(
-        title = "You don't have the permission to use this command!",
-        description = "You need to have administrator permission to use this command",
+        title = f"Warned {user.name}!!",
         colour = discord.Colour.red()
       )
       await ctx.send(embed = em)
+    except:
+      em = discord.Embed(
+        title = f"Can't send the message to {user.name}",
+        colour = discord.Colour.green()
+      )
+      await ctx.send(embed = em)
+      await ctx.send(f"{user.mention} You have been WARNED!!!!")
+    
 
 
 @client.command()
@@ -248,44 +227,37 @@ async def unban(ctx, user= None):
     await ctx.send(embed = em)
   else:
     try:
-      try:
-        banned = await ctx.guild.bans()
-        memberName , memberDisc = user.split('#')
-        for entry in banned:
-          users = entry.user
-          if(users.name, users.discriminator) == (memberName, memberDisc):
-            await ctx.guild.unban(users)
-            await user.send(f"You have been **UnBanned** from **{ctx.guild.name}** !! 🎉")
-            em = discord.Embed(
-              title = f"UnBanned {user.name}!! 🎉",
-              description = "We hope now there will be PEACE in the server!",
-              colour = discord.Colour.green()
-            )
-            await ctx.send(embed = em)
-            return
-        await ctx.send(f"{user} not found \nPlease try again but this time give me the name of the person to ban. \nExample of the usage: \n `%unban [Mention the person]` \nRemember that you need to specify [user name]#[user discriminator] for exmaple `sample#7834`")
-      except:
-        banned = await ctx.guild.bans()
-        memberName , memberDisc = user.split('#')
-        for entry in banned:
-          users = entry.user
-          if(users.name, users.discriminator) == (memberName, memberDisc):
-            await ctx.guild.unban(users)
-            em = discord.Embed(
-              title = f"UnBanned {user.name}!! 🎉",
-              description = "We hope now there will be PEACE in the server!",
-              colour = discord.Colour.green()
-            )
-            await ctx.send(embed = em)
-            return
-        await ctx.send(user+" not found!! \nPlease try again but this time give me the name of the person to ban. \nExample of the usage: \n `%unban [Mention the person]` \nRemember that you need to specify [user name]#[user discriminator] for exmaple `sample#7834`")
+      banned = await ctx.guild.bans()
+      memberName , memberDisc = user.split('#')
+      for entry in banned:
+        users = entry.user
+        if(users.name, users.discriminator) == (memberName, memberDisc):
+          await ctx.guild.unban(users)
+          await user.send(f"You have been **UnBanned** from **{ctx.guild.name}** !! 🎉")
+          em = discord.Embed(
+            title = f"UnBanned {user.name}!! 🎉",
+            description = "We hope now there will be PEACE in the server!",
+            colour = discord.Colour.green()
+          )
+          await ctx.send(embed = em)
+          return
+      await ctx.send(f"{user} not found \nPlease try again but this time give me the name of the person to ban. \nExample of the usage: \n `%unban [Mention the person]` \nRemember that you need to specify [user name]#[user discriminator] for exmaple `sample#7834`")
     except:
-      em = discord.Embed(
-        title = "You don't have the permission to use this command!",
-        description = "You need to have administrator permission to use this command",
-        colour = discord.Colour.red()
-      )
-      await ctx.send(embed = em)
+      banned = await ctx.guild.bans()
+      memberName , memberDisc = user.split('#')
+      for entry in banned:
+        users = entry.user
+        if(users.name, users.discriminator) == (memberName, memberDisc):
+          await ctx.guild.unban(users)
+          em = discord.Embed(
+            title = f"UnBanned {user.name}!! 🎉",
+            description = "We hope now there will be PEACE in the server!",
+            colour = discord.Colour.green()
+          )
+          await ctx.send(embed = em)
+          return
+      await ctx.send(user+" not found!! \nPlease try again but this time give me the name of the person to ban. \nExample of the usage: \n `%unban [Mention the person]` \nRemember that you need to specify [user name]#[user discriminator] for exmaple `sample#7834`")
+    
 
 
 @client.command()
