@@ -133,31 +133,31 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
     )
     await ctx.send(embed = em)
   else:
+    # try:
     try:
-      try:
-        await user.send("You have been kicked out of the Team Shadows!!\nBecause:  "+ reason)
-        await user.kick(reason = reason)
-        em = discord.Embed(
-          title = f"Kicked {user.name} out of the server!!",
-          description = "We hope now there will be PEACE in the server!",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-      except:
-        await user.kick(reason = reason)
-        em = discord.Embed(
-          title = f"Kicked {user.name} out of the server!!",
-          description = "We hope now there will be PEACE in the server!",
-          colour = discord.Colour.green()
-        )
-        await ctx.send(embed = em)
-    except:
+      await user.send("You have been kicked out of the Team Shadows!!\nBecause:  "+ reason)
+      await user.kick(reason = reason)
       em = discord.Embed(
-        title = "You don't have the permission to use this command!",
-        description = "You need to have administrator permission to use this command",
-        colour = discord.Colour.red()
+        title = f"Kicked {user.name} out of the server!!",
+        description = "We hope now there will be PEACE in the server!",
+        colour = discord.Colour.green()
       )
       await ctx.send(embed = em)
+    except:
+      await user.kick(reason = reason)
+      em = discord.Embed(
+        title = f"Kicked {user.name} out of the server!!",
+        description = "We hope now there will be PEACE in the server!",
+        colour = discord.Colour.green()
+      )
+      await ctx.send(embed = em)
+    # except:
+    #   em = discord.Embed(
+    #     title = "You don't have the permission to use this command!",
+    #     description = "You need to have administrator permission to use this command",
+    #     colour = discord.Colour.red()
+    #   )
+    #   await ctx.send(embed = em)
 
 
 @client.command()
