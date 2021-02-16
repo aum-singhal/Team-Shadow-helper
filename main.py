@@ -3,7 +3,7 @@ from discord.ext import commands, tasks
 from random import choice
 import os
 
-# BotLink = 'https://discord.com/api/oauth2/authorize?client_id=810896982037233664&permissions=2147483639&scope=bot'
+# BotLink = https://discord.com/api/oauth2/authorize?client_id=810896982037233664&permissions=2147483639&scope=bot
 
 
 client = commands.Bot(command_prefix=commands.when_mentioned_or("%"), description='A simple helping bot for Team Shadow!')
@@ -133,31 +133,31 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
     )
     await ctx.send(embed = em)
   else:
-    # try:
     try:
-      await user.send("You have been kicked out of the Team Shadows!!\nBecause:  "+ reason)
-      await user.kick(reason = reason)
-      em = discord.Embed(
-        title = f"Kicked {user.name} out of the server!!",
-        description = "We hope now there will be PEACE in the server!",
-        colour = discord.Colour.green()
-      )
-      await ctx.send(embed = em)
+      try:
+        await user.send(f"You have been kicked out of the {ctx.guild.name}!!\nBecause: {reason} ")
+        await user.kick(reason = reason)
+        em = discord.Embed(
+          title = f"Kicked {user.name} out of the server!!",
+          description = "We hope now there will be PEACE in the server!",
+          colour = discord.Colour.green()
+        )
+        await ctx.send(embed = em)
+      except:
+        await user.kick(reason = reason)
+        em = discord.Embed(
+          title = f"Kicked {user.name} out of the server!!",
+          description = "We hope now there will be PEACE in the server!",
+          colour = discord.Colour.green()
+        )
+        await ctx.send(embed = em)
     except:
-      await user.kick(reason = reason)
       em = discord.Embed(
-        title = f"Kicked {user.name} out of the server!!",
-        description = "We hope now there will be PEACE in the server!",
-        colour = discord.Colour.green()
+        title = "You don't have the permission to use this command!",
+        description = "You need to have administrator permission to use this command",
+        colour = discord.Colour.red()
       )
       await ctx.send(embed = em)
-    # except:
-    #   em = discord.Embed(
-    #     title = "You don't have the permission to use this command!",
-    #     description = "You need to have administrator permission to use this command",
-    #     colour = discord.Colour.red()
-    #   )
-    #   await ctx.send(embed = em)
 
 
 @client.command()
@@ -173,7 +173,7 @@ async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"
   else:
     try:
       try:
-        await user.send("You have been Banned from Team Shadows!!\nBecause:  "+ reason)
+        await user.send(f"You have been Banned from {ctx.guild.name}!!\nBecause: {reason} ")
         await user.ban(reason = reason)
         em = discord.Embed(
           title = f"Banned {user.name} out of the server!!",
@@ -211,7 +211,7 @@ async def warn(ctx, user : discord.Member = None, *,reason = "No reason provided
   else:
     try:
       try:
-        await user.send(f"You have been Warned by {ctx.author.name} in the Teams Shadows for the reason: {reason} ")
+        await user.send(f"You have been Warned by {ctx.author.name} in the {ctx.guild.name} for the reason: {reason} ")
         em = discord.Embed(
           title = f"Warned {user.name}!!",
           colour = discord.Colour.red()
@@ -224,6 +224,44 @@ async def warn(ctx, user : discord.Member = None, *,reason = "No reason provided
         )
         await ctx.send(embed = em)
         await ctx.send(f"{user.mention} You have been WARNED!!!!")
+    except:
+      em = discord.Embed(
+        title = "You don't have the permission to use this command!",
+        description = "You need to have administrator permission to use this command",
+        colour = discord.Colour.red()
+      )
+      await ctx.send(embed = em)
+
+
+@client.command()
+@commands.has_permissions(administrator=True)
+async def unban(ctx, user= None):
+  if user == None:
+    em = discord.Embed(
+      title = "Whom you want to Ban",
+      description = "Please try again but this time give me the name of the person to ban. \nExample of the usage: \n `%ban [Mention the person] [give a reason]`",
+      colour = discord.Colour.red()
+    )
+    await ctx.send(embed = em)
+  else:
+    try:
+      try:
+        await user.send("You have been Banned from Team Shadows!!\nBecause:  ")
+        await user.ban()
+        em = discord.Embed(
+          title = f"Banned {user.name} out of the server!!",
+          description = "We hope now there will be PEACE in the server!",
+          colour = discord.Colour.green()
+        )
+        await ctx.send(embed = em)
+      except:
+        await user.ban()
+        em = discord.Embed(
+          title = f"Banned {user.name} out of the server!!",
+          description = "We hope now there will be PEACE in the server!",
+          colour = discord.Colour.green()
+        )
+        await ctx.send(embed = em)
     except:
       em = discord.Embed(
         title = "You don't have the permission to use this command!",
