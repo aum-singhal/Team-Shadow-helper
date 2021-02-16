@@ -53,7 +53,7 @@ async def help(ctx, com = None):
     embed = discord.Embed(
     title = "You have entered a wrong command.",
     description = "Type `%help` to see the help box or type `%help welcome` to see more about the welcome command.",
-    colour = colour()
+    colour = discord.Colour.red()
     )
   await ctx.send(embed=embed)
 
@@ -118,6 +118,47 @@ async def welcome(ctx, user : discord.Member = None):
     embed.set_image(url = 'https://media.giphy.com/media/14aa5GbbHT3bHO/giphy.gif')
     await ctx.send(embed = embed)
 
+
+@client.command()
+@commands.has_permissions(kick_members =True)
+async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided"):
+  if user == None:
+    em = discord.Embed(
+      title = "Whom you want to kick",
+      description = "Please try again but this time give me the name of the person to kick. \nExample of the usage: \n `%kick [Mention the person] [give a reason]`",
+      colour = discord.Colour.red()
+    )
+    await ctx.send(embed = em)
+  else:
+    await user.send("You have been kicked out of the Team Shadows!!\nBecause:  ",reason)
+    await user.kick(reason = reason)
+    em = discord.Embed(
+      title = f"Kicked {user.name} out of the server!!",
+      description = "We hope now there will be PEACE in the server!",
+      colour = discord.Colour.green()
+    )
+    await ctx.send(embed = em)
+
+
+@client.command()
+@commands.has_permissions(ban_members =True)
+async def ban(ctx, user : discord.Member = None, *,reason = "No reason provided"):
+  if user == None:
+    em = discord.Embed(
+      title = "Whom you want to Ban",
+      description = "Please try again but this time give me the name of the person to ban. \nExample of the usage: \n `%ban [Mention the person] [give a reason]`",
+      colour = discord.Colour.red()
+    )
+    await ctx.send(embed = em)
+  else:
+    await user.send("You have been Banned from Team Shadows!!\nBecause:  ",reason)
+    await user.ban(reason = reason)
+    em = discord.Embed(
+      title = f"Banned {user.name} out of the server!!",
+      description = "We hope now there will be PEACE in the server!",
+      colour = discord.Colour.green()
+    )
+    await ctx.send(embed = em)
 
 
 
