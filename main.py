@@ -137,7 +137,6 @@ async def kick(ctx, user : discord.Member = None, *,reason = "No reason provided
     await ctx.send(embed = em)
   else:
     try:
-      await user.send(f"You have been **kicked** out of the **{ctx.guild.name}**!!\nBecause: **{reason}** ")
       await user.kick(reason = reason)
       em = discord.Embed(
         title = f"Kicked {user.name} out of the server!!",
